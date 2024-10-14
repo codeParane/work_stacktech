@@ -1,0 +1,10 @@
+
+RxJS have muliple purposes specifically in angular used to manage data streams & state management. 
+
+Type of the observable are:
+Subject - execute one time multicast, only get vvalue after subscribed
+Behaviour Sub - emit init value or last updated value when subscribe
+replay sub - replay old value for first subscribe
+async sub - will emit the latest value only when complete async subject
+
+

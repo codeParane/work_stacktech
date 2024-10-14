@@ -1,0 +1,88 @@
+Issues
+------
+1. missing Item module class
+2. GetItems method not return status 200 ok.
+3. PostItem method shoud return specfic item which created instead of the all items.
+4. to cater above point have to implement GetItem method.
+
+below source code add to the section-2 as well
+
+
+
+Updated source code
+------
+using Microsoft.AspNetCore.Mvc;
+using SimpleCrudApi.Models;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace MyApi.Controllers
+{
+  [Route("api/[controller]")]
+  [ApiController]
+  public class ItemsController : ControllerBase
+  {
+    private static List<Item> items = new List<Item>();
+
+    [HttpGet]
+    public ActionResult<IEnumerable<Item>> GetItems()
+    {
+      return Ok(items);
+    }
+
+    [HttpPost]
+    public ActionResult<Item> PostItem(Item item)
+    {
+      items.Add(item);
+      return CreatedAtAction(nameof(GetItem), new { id = item.Id }, item);
+    }
+
+    [HttpGet("{id}")]
+    public ActionResult<Item> GetItem(int id)
+    {
+        var item = items.FirstOrDefault(i => i.Id == id);
+        if (item == null)
+        {
+            return NotFound();
+        }
+        return Ok(item);
+    }
+
+    [HttpPut("{id}")]
+    public IActionResult PutItem(int id, Item item)
+    {
+      var existingItem = items.FirstOrDefault(i => i.Id == id);
+      if (existingItem == null)
+      {
+        return NotFound();
+      }
+
+      existingItem.Name = item.Name;
+      return NoContent();
+    }
+
+    [HttpDelete("{id}")]
+    public IActionResult DeleteItem(int id)
+    {
+      var item = items.FirstOrDefault(i => i.Id == id);
+      if (item == null)
+      {
+        return NotFound();
+      }
+
+      items.Remove(item);
+      return NoContent();
+    }
+  }
+}
+
+--------
+namespace SimpleCrudApi.Models
+{
+  public class Item
+  {
+    public int Id { get; set; }
+    public string Name { get; set; }
+  }
+}
+

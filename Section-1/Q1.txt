@@ -1,0 +1,9 @@
+Its a classes which allowing for the separation of business logic from the user interface.
+also services using dependency injection system, making it easy for components to request and use them without creating instances
+
+Mainly share the reusable code between multiple components.
+can use service for 
+- data sharing between components
+- state management
+- utility functions like formatting, checking null, common validations
+- to call the http services

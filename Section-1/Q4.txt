@@ -1,0 +1,7 @@
+DI one of the Design pattern used in angular to allow components, services to receive the depedencies as a injection 
+instead of creating in each classes. 
+
+using this approach we can reduce the coupling between classes. also angular provide 3 level injection
+root: available by application level
+module: available to all the components inside module
+component: availble only that component.

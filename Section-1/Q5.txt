@@ -1,0 +1,13 @@
+download and install dotnet SDK
+setting up the env path 
+to create project 
+	dotnet new webapi <<project-name>>
+
+can use vs code / vs studio as IDE
+
+create the models under models folder
+then for the models create have to create controller
+
+update the program.cs with the configuration to support the controllers
+
+if you are running locally make sure you configure cors.

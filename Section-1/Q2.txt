@@ -1,0 +1,10 @@
+Angular inbuild have the module call HttpClient module 
+which provide the functionality to handle http request/ responses 
+alsot it supports methos scuh as GET, POST, DELETE, PUT.
+
+HttpClientModule have to import from @angular/common/http
+
+also angular have httpInterceptors to modify the request/ response in one place for application
+using this we can append access controll to authentication or handle error in one place.
+
+how to use above can see on section2 answers source code persons.service.ts

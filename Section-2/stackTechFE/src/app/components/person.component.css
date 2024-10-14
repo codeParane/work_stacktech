@@ -1,0 +1,22 @@
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+}
+
+.person-form-card {
+  margin-bottom: 20px;
+  padding: 20px;
+}
+
+.person-list-card {
+  overflow-x: auto;
+}
+
+mat-form-field {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+mat-toolbar {
+  margin-bottom: 20px;
+}
